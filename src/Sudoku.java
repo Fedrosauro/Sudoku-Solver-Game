@@ -20,7 +20,6 @@ public class Sudoku {
             resultsList.clear();
             for (int i = 0; i < matriciAggiornate.size(); i++) {
                 resolveR(0, matriciAggiornate.get(i), k);
-                clear(k); //eliminates all the matrix that don't have all 9 numbers of the number given in the matrix
             }
             System.out.println(resultsList.size() + " possible matrices for number : " + k);
         }
@@ -92,21 +91,6 @@ public class Sudoku {
                 newMatrix[i][j] = oldMatrix[i][j];
             }
         } return newMatrix;
-    }
-
-    public void clear(int lastNumberEntered){
-        for(int i = 0; i < resultsList.size(); i++){
-            if(NINE(resultsList.get(i), lastNumberEntered) != N) resultsList.remove(i);
-        }
-    }
-
-    public int NINE(int[][] matrix, int number){ //count of the number's numbers given
-        int sum = 0;
-        for(int i = 0; i < N; i++){
-            for(int j = 0; j < N; j++){
-                if(matrix[i][j] == number) sum += 1;
-            }
-        } return sum;
     }
 
     public String toStringM(int[][] m){
