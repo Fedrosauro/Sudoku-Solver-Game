@@ -1,3 +1,11 @@
-# Sudoku Solver Project
-Personal project that solve a sudoku. It gives all the solutions.
-I'm still working on graphics, therefore, after the call of the "solve" method, you will see the solutions on your console. If you put few numbers in the matrix, the program will crash... too many solutions (i need to fix this)
+# Sudoku Solver Game
+         I hope the font thing works. But ,anyways, basically this "game"
+         gives you all the solutions of a Sudoku. If you insert
+         few numbers there can be more than one solution. Most of the
+         classes in this project were made for Graphics. If you want
+         to see the core of the Sudoku solving process see only the
+         class : Sudoku.java (the rest is just pure graphic stuff)
+
+         I still need to fix some things, because there is a possibility
+         in which the program "can't solve" the Sudoku (too many solution)
+         but that's fixable. Anyways enjoy it :3
