@@ -22,7 +22,7 @@ public class MainTest {
              |    MADE BY "Klio" :P   |
              --------------------------
 
-             I'm still working on the graphical part...
+             Graphic finished!
          */
     }
 }
