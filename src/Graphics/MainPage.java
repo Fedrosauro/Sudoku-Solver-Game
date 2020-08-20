@@ -54,7 +54,6 @@ public class MainPage extends JPanel implements MouseListener, MouseMotionListen
         y1 = HEIGHT/2 - 40;
         rect1= new Rectangle2D.Float(x1, y1, width1, height1);
 
-        clicked1 = false;
         change1 = false;
 
         line1W = 0; line1E = 0; line1N = 0; line1S = 0;
@@ -62,7 +61,6 @@ public class MainPage extends JPanel implements MouseListener, MouseMotionListen
         y2 = y1 + height1 + 20;
         rect2= new Rectangle2D.Float(x1, y2, width1, height1);
 
-        clicked2 = false;
         change2 = false;
 
         line2W = 0; line2E = 0; line2N = 0; line2S = 0;
