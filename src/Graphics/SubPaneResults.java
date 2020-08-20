@@ -16,7 +16,6 @@ public class SubPaneResults extends JPanel implements MouseMotionListener, Mouse
     private Rectangle2D rect1;
     private int x1, y1;
     private int width1, height1;
-    private boolean clicked1;
     private boolean change1;
 
     private int line1N;
@@ -26,8 +25,7 @@ public class SubPaneResults extends JPanel implements MouseMotionListener, Mouse
 
     private Rectangle2D rect2;
     private int x2;
-    int width2;
-    private boolean clicked2;
+    private int width2;
     private boolean change2;
 
     private int line2N;
@@ -67,10 +65,8 @@ public class SubPaneResults extends JPanel implements MouseMotionListener, Mouse
 
         line2W = 0; line2E = 0; line2N = 0; line2S = 0;
 
-        clicked1 = false;
         change1 = false;
 
-        clicked2 = false;
         change2 = false;
     }
 
@@ -105,20 +101,6 @@ public class SubPaneResults extends JPanel implements MouseMotionListener, Mouse
             if (line2S > 0) line2S -= 10;
             if (line2W > 0) line2W -= 5;
             if (line2E > 0) line2E -= 5;
-        }
-
-        if(clicked1){
-            MainPage mainPage = new MainPage(frame);
-            timer.stop();
-            frame.setContentPane(mainPage);
-            frame.revalidate();
-        }
-
-        if(clicked2){
-            Result result = new Result(frame);
-            timer.stop();
-            frame.setContentPane(result);
-            frame.revalidate();
         }
     }
 
@@ -205,12 +187,18 @@ public class SubPaneResults extends JPanel implements MouseMotionListener, Mouse
         int y = e.getY();
 
         if (rect1.contains(x, y)) {
-            clicked1 = true;
-        } else clicked1 = false;
+           MainPage mainPage = new MainPage(frame);
+            timer.stop();
+            frame.setContentPane(mainPage);
+            frame.revalidate();
+        }
 
         if (rect2.contains(x, y)) {
-            clicked2 = true;
-        } else clicked2 = false;
+            Result result = new Result(frame);
+            timer.stop();
+            frame.setContentPane(result);
+            frame.revalidate();
+        } 
     }
 
     @Override
