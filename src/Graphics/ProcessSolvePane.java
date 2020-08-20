@@ -19,7 +19,6 @@ public class ProcessSolvePane extends JPanel implements MouseListener, MouseMoti
     private Rectangle2D rect1;
     private int x1, y1;
     private int width1, height1;
-    private boolean clicked1;
     private boolean change1;
 
     private int line1N;
@@ -59,7 +58,6 @@ public class ProcessSolvePane extends JPanel implements MouseListener, MouseMoti
 
         line1W = 0; line1E = 0; line1N = 0; line1S = 0;
 
-        clicked1 = false;
         change1 = false;
 
         magicTimer = 0;
@@ -91,13 +89,6 @@ public class ProcessSolvePane extends JPanel implements MouseListener, MouseMoti
             if (line1S > 0) line1S -= 10;
             if (line1W > 0) line1W -= 5;
             if (line1E > 0) line1E -= 5;
-        }
-
-        if(clicked1){
-            ResultsGlass resultsGlass = new ResultsGlass(frame, thread.getSudokuResults());
-            timer.stop();
-            frame.setContentPane(resultsGlass);
-            frame.revalidate();
         }
     }
 
@@ -183,8 +174,11 @@ public class ProcessSolvePane extends JPanel implements MouseListener, MouseMoti
         int y = e.getY();
 
         if (rect1.contains(x, y)) {
-            clicked1 = true;
-        } else clicked1 = false;
+            ResultsGlass resultsGlass = new ResultsGlass(frame, thread.getSudokuResults());
+            timer.stop();
+            frame.setContentPane(resultsGlass);
+            frame.revalidate();
+        }
     }
 
     @Override
