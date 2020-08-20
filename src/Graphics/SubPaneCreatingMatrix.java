@@ -13,7 +13,6 @@ public class SubPaneCreatingMatrix extends JPanel implements MouseListener, Mous
     private Rectangle2D rect1;
     private int x1, y1;
     private int width1, height1;
-    private boolean clicked1;
     private boolean change1;
 
     private int line1N;
@@ -62,12 +61,11 @@ public class SubPaneCreatingMatrix extends JPanel implements MouseListener, Mous
 
         line2W = 0; line2E = 0; line2N = 0; line2S = 0;
 
-        clicked1 = false;
         change1 = false;
 
-        clicked2 = false;
         change2 = false;
-
+        clicked2 = false;
+        
         fewNumbes = false;
         minNumbers = 18;
     }
@@ -103,13 +101,6 @@ public class SubPaneCreatingMatrix extends JPanel implements MouseListener, Mous
             if (line2S > 0) line2S -= 10;
             if (line2W > 0) line2W -= 5;
             if (line2E > 0) line2E -= 5;
-        }
-
-        if(clicked1){
-            MainPage mainPage = new MainPage(frame);
-            timer.stop();
-            frame.setContentPane(mainPage);
-            frame.revalidate();
         }
 
         if(clicked2){
@@ -261,8 +252,11 @@ public class SubPaneCreatingMatrix extends JPanel implements MouseListener, Mous
         int y = e.getY();
 
         if (rect1.contains(x, y)) {
-            clicked1 = true;
-        } else clicked1 = false;
+            MainPage mainPage = new MainPage(frame);
+            timer.stop();
+            frame.setContentPane(mainPage);
+            frame.revalidate();
+        } 
 
         if (rect2.contains(x, y)) {
             clicked2 = true;
