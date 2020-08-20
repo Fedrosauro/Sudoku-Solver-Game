@@ -16,7 +16,6 @@ public class MainPage extends JPanel implements MouseListener, MouseMotionListen
     private Rectangle2D rect1; //everything that we need for the first button
     private int x1, y1;
     private int width1, height1;
-    private boolean clicked1;
     private boolean change1;
 
     private int line1N;
@@ -26,7 +25,6 @@ public class MainPage extends JPanel implements MouseListener, MouseMotionListen
 
     private Rectangle2D rect2;
     private int y2;
-    private boolean clicked2;
     private boolean change2;
 
     private int line2N;
@@ -101,18 +99,6 @@ public class MainPage extends JPanel implements MouseListener, MouseMotionListen
             if (line2S > 0) line2S -= 10;
             if (line2W > 0) line2W -= 5;
             if (line2E > 0) line2E -= 5;
-        }
-
-        if(clicked1){ //the EXIT button
-            timer.stop();
-            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING)); //X with custom button
-        }
-
-        if(clicked2){
-            PlayGlass playGlass = new PlayGlass(frame);
-            timer.stop();
-            frame.setContentPane(playGlass);
-            frame.revalidate();
         }
     }
 
@@ -211,12 +197,16 @@ public class MainPage extends JPanel implements MouseListener, MouseMotionListen
         int y = e.getY();
 
         if (rect1.contains(x, y)) {
-            clicked1 = true;
-        } else clicked1 = false;
+            timer.stop();
+            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING)); //X with custom button
+        }
 
         if (rect2.contains(x, y)) {
-            clicked2 = true;
-        } else clicked2 = false;
+            PlayGlass playGlass = new PlayGlass(frame);
+            timer.stop();
+            frame.setContentPane(playGlass);
+            frame.revalidate();
+        } 
     }
 
     @Override
