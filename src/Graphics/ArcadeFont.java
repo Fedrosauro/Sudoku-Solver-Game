@@ -8,7 +8,7 @@ public class ArcadeFont {
     private static Font ttfBase = null;
     private static Font arcadeFont = null;
     private static InputStream myStream = null;
-    private static final String FONT_PATH_ARCADE = "src/Arcadepix Plus.ttf";
+    private static final String FONT_PATH_ARCADE = "src/Graphics/Arcadepix Plus.ttf";
 
     public static Font createFont(int size) {
 
